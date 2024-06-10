@@ -29,6 +29,9 @@ class PrototypesController < ApplicationController
     if !user_signed_in?
       redirect_to action: :index
     end
+    if current_user != @prototype.user
+        redirect_to root_path
+    end
   end
   
   def update
